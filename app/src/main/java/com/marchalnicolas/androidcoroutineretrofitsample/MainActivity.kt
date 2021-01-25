@@ -1,12 +1,12 @@
 package com.marchalnicolas.androidcoroutineretrofitsample
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity() {
+    val TAG = MainActivity::class.java.simpleName
 
     private val viewModel: MainViewModel by viewModels()
 
@@ -14,12 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button.setOnClickListener {
-            viewModel.loadContent()
-        }
-
         viewModel.responseLiveData.observe(this, {
-            textView.text = it.joinToString(separator = "\n")
+            Log.d(TAG, it.joinToString(separator = "\n"))
         })
     }
 }
