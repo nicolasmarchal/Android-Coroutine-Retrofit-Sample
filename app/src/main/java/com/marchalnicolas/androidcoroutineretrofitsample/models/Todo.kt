@@ -1,4 +1,4 @@
-package com.marchalnicolas.androidcoroutineretrofitsample
+package com.marchalnicolas.androidcoroutineretrofitsample.models
 
 data class Todo(
     val userId: Int,

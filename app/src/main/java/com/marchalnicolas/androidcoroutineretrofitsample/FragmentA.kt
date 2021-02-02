@@ -22,5 +22,9 @@ class FragmentA : Fragment() {
         viewModel.responseLiveData.observe(viewLifecycleOwner, {
             textView.text = it.joinToString(separator = "\n")
         })
+        viewModel.convertedNumberLiveData.observe(viewLifecycleOwner, {
+            textView.text = it
+        })
+
     }
 }
